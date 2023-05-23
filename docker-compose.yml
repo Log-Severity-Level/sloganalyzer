@@ -1,0 +1,41 @@
+version: "2.2"
+
+volumes:
+  repositorystore:
+  staticstore:
+  mediastore:
+  logstore:
+
+services:
+
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=log
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5433:5433"
+
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: python3 ./manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - repositorystore:/repositories
+      - staticstore:/static
+      - mediastore:/media
+      - logstore:/log
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    depends_on:
+      - db
+
+

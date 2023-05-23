@@ -1,0 +1,130 @@
+{% load static %}
+<ul class="sidebar-menu">
+    <li class="header">MAIN NAVIGATION</li>
+    <li>
+        <a id="adminIndex" href="{% url 'admin:index' %}">
+        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+{#            <span class="pull-right-container">#}
+{#        <i class="fa fa-angle-left pull-right"></i>#}
+{#        </span>#}
+        </a>
+
+    </li>
+
+
+
+    {% if perms.core %}
+    <li class="treeview active">
+        <a href="javascript:void(0)">
+            <i class="fa fa-table"></i>
+            <span style="overflow: hidden; display: inline-block; vertical-align:top;">OLTP Data</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            {% if perms.core.view_system %}
+            <li>
+                <a href="{% url 'admin:core_system_changelist' %}">
+                <i class="fa fa-circle-o"></i>
+                Systems
+                </a>
+            </li>
+            {% endif %}
+            {% if perms.core.view_branch %}
+            <li>
+                <a href="{% url 'admin:core_branch_changelist' %}">
+                <i class="fa fa-circle-o"></i>
+                Branchs
+                </a>
+            </li>
+            {% endif %}
+            {% if perms.core.view_branchcomparison %}
+            <li>
+                <a href="{% url 'admin:core_branchcomparison_changelist' %}">
+                <i class="fa fa-circle-o"></i>
+                Branch Comparison
+                </a>
+            </li>
+            {% endif %}
+            {% if perms.core.view_branchfilecomparison %}
+            <li>
+                <a href="{% url 'admin:core_branchfilecomparison_changelist' %}">
+                <i class="fa fa-circle-o"></i>
+                Branch File Comparison
+                </a>
+            </li>
+            {% endif %}
+            {% if perms.core.view_file %}
+            <li>
+                <a href="{% url 'admin:core_file_changelist' %}">
+                <i class="fa fa-circle-o"></i>
+                Files
+                </a>
+            </li>
+            {% endif %}
+            {% if perms.core.view_method %}
+            <li>
+                <a href="{% url 'admin:core_method_changelist' %}">
+                <i class="fa fa-circle-o"></i>
+                Methods
+                </a>
+            </li>
+            {% endif %}
+            {% if perms.core.view_severitylevel %}
+            <li>
+                <a href="{% url 'admin:core_severitylevel_changelist' %}">
+                <i class="fa fa-circle-o"></i>
+                Severity levels
+                </a>
+            </li>
+            {% endif %}
+            {% if perms.core.view_statement %}
+            <li>
+                <a href="{% url 'admin:core_statement_changelist' %}">
+                <i class="fa fa-circle-o"></i>
+                Log Statements
+                </a>
+            </li>
+            {% endif %}
+            {% if perms.core.view_message %}
+            <li>
+                <a href="{% url 'admin:core_message_changelist' %}">
+                <i class="fa fa-circle-o"></i>
+                Messages
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </li>
+    {% endif %}
+    {% if perms.auth %}
+    <li class="treeview">
+        <a href="javascript:void(0)">
+        <i class="fa fa-key"></i>
+        <span style="overflow: hidden; display: inline-block; vertical-align:top;">Authentication</span>
+        <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+        </span>
+        </a>
+        <ul class="treeview-menu">
+            {% if perms.auth.view_group %}
+            <li>
+                <a href="{% url 'admin:auth_group_changelist' %}">
+                <i class="fa fa-circle-o"></i>
+                Groups
+                </a>
+            </li>
+            {% endif %}
+            {% if perms.auth.view_user %}
+            <li>
+                <a href="{% url 'admin:auth_user_changelist' %}">
+                <i class="fa fa-circle-o"></i>
+                Users
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </li>
+    {% endif %}
+</ul>

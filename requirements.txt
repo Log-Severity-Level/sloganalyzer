@@ -1,0 +1,12 @@
+wheel==0.36.2
+Django==3.2.4  # https://www.djangoproject.com/download/
+# django-currentuser==0.5.3
+django-environ==0.4.5
+django_debug_toolbar==3.2.2
+psycopg2_binary==2.9.3
+django_extensions==3.1.5
+pydotplus==2.0.2
+pydriller==2.1
+lizard==1.17.10
+sqlalchemy
+git+https://github.com/marcelomdevasconcellos/django-adminlte-ui.git#egg=django-adminlte-ui #original: django-adminlte-ui==1.5.1

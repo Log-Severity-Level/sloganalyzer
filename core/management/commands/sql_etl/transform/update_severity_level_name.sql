@@ -1,0 +1,15 @@
+SELECT 1;
+-- UPDATE stage.statements SET severity_level='WARN' WHERE severity_level='WARNING';
+-- COMMIT;
+-- UPDATE stage.changes SET category = 'Unchanged'
+-- WHERE category = 'Updated' AND
+--       changed_severity_level = 'No'  AND
+--       changed_variables = 'No'  AND
+--       changed_semantic_content = 'No'  AND
+--       changed_messages_length = 'No';
+-- COMMIT;
+-- UPDATE stage.changes SET category = 'Unchanged'
+-- WHERE category = 'Updated' AND
+--       changed_severity_level = 'No'  AND
+--       changed_variables = 'No'  AND
+--       changed_semantic_content = 'No';
