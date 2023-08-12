@@ -22,7 +22,7 @@ data = [
         'github_url': 'https://github.com/apache/hbase.git',
         'cloned_date': None,
         'head': None,
-        'version_regex': '^(rel\/|release-|hbase-)?(?P<v1>\d+)\.(?P<v2>\d+)\.(?P<v3>\d{1,3})$'
+        'version_regex': '^(rel\/|release-)?(?P<v1>\d+)\.(?P<v2>\d+)\.(?P<v3>\d{1,3})$'
     },
 ]
 
